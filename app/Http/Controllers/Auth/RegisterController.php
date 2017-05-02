@@ -20,31 +20,19 @@ class RegisterController extends Controller
     |
     */
 
+    // Scaffolded registration methods
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
+    // Redirect after registration
     protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    // Allows guests (non-authenticated users) to access functions in this controller
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    // Validates user input
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -54,12 +42,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
+    // Creates new user (bcrypt = hashing of the password)
     protected function create(array $data)
     {
         return User::create([

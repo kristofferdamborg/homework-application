@@ -21,30 +21,27 @@ class LoginController extends Controller
     |
     */
 
+    // Scaffolded authentication methods
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    // Redirect after user login
     protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
+    // Allows guests (non-authenticated users) to access functions (not logout) in this controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
+    // Redirects to Google for login
+    // (Uses the socialite package)
     public function redirectToProvider()
     {
         return Socialite::driver('google')->redirect();
     }
 
+    // Handles the callback from Google
+    // (Uses the socialite package)
     public function handleProviderCallback()
     {
         try 
@@ -55,13 +52,27 @@ class LoginController extends Controller
         {
             return redirect('auth/google');
         }
+
+        // Uses the function underneath (findOrCreateUser) and creates $authUser object
         $authUser = $this->findOrCreateUser($user);
 
+        // Sets the user as authenticated (logged in)
         Auth::login($authUser, true);
 
+        // Redirects the user to home page, after being logged in
         return redirect('/home');
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+    }
+
+    // Checks if the user exists, by looking for google_id
+    // Creates a new user, if an existing is not found
     public function findOrCreateUser($googleUser)
     {
         $authUser = User::where('google_id', $googleUser->id)->first();

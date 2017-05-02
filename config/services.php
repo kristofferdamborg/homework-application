@@ -35,6 +35,7 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    // Google ID,Secret & Callback URL is found in .env file
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
