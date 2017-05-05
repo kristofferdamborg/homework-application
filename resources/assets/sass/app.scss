@@ -7,3 +7,67 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* Admin Sidebar */
+
+.admin-sidebar {
+    position: absolute;
+    top: 100;
+    left: 0;
+    margin-left: -10px;
+    width: 250px;
+    padding-bottom: 15px;
+
+    .panel-body {
+        padding-bottom: 0px;
+    }
+
+    a.btn.btn-primary {
+        width: 75%;
+    }
+}
+
+/* Roles */
+
+.roles-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.roles-table {
+    tbody tr th {
+        border-top: none;
+    }
+    td {
+        border-top: none;
+    }
+}
+
+.role-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .role-delete-btn {
+    margin-left: 5px;
+    }
+}
+
+/* Create Role */
+
+.permission-checkbox {
+    box-shadow: none!important;
+    display: flex;
+    justify-content: flex-start;
+
+    input {
+        max-width: 30%;
+        margin-right: 10px;
+    }
+}

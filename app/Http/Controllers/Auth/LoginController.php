@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
 use Auth;
+use App\Role;
 
 class LoginController extends Controller
 {
@@ -42,7 +43,7 @@ class LoginController extends Controller
 
     // Handles the callback from Google
     // (Uses the socialite package)
-    public function handleProviderCallback()
+   public function handleProviderCallback()
     {
         try 
         {
@@ -53,39 +54,16 @@ class LoginController extends Controller
             return redirect('auth/google');
         }
 
-        // Uses the function underneath (findOrCreateUser) and creates $authUser object
-        $authUser = $this->findOrCreateUser($user);
+        $authUser = User::where('google_id', $user->id)->first();
 
-        // Sets the user as authenticated (logged in)
-        Auth::login($authUser, true);
-
-        // Redirects the user to home page, after being logged in
-        return redirect('/home');
-    }
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-        ]);
-    }
-
-    // Checks if the user exists, by looking for google_id
-    // Creates a new user, if an existing is not found
-    public function findOrCreateUser($googleUser)
-    {
-        $authUser = User::where('google_id', $googleUser->id)->first();
-
-        if ($authUser) {
-            return $authUser;
+        if($authUser) //If the user is found
+        {
+            Auth::login($authUser, true); //Log in the user
+            return redirect('/home');
         }
-
-        return User::create([
-            'name' => $googleUser->name,
-            'email' => $googleUser->email,
-            'google_id' => $googleUser->id,
-            'avatar' => $googleUser->avatar
-        ]);
+        else //If user is not found, redirect to the register page
+        {
+            return redirect('/register')->with('user', $user);
+        }
     }
 }
