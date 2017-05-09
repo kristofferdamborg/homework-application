@@ -13,6 +13,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('google_id')->nullable();
+            $table->string('school_id')->nullable();
+            $table->string('school_class_id')->nullable();
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->string('password')->nullable();

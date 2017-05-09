@@ -6,26 +6,27 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="roles-heading panel-heading">
-                    <h3>Roles</h3>
-                    <a class="btn btn-success" href="{{ route('role.create') }}">Create Role</a>
+                    <h3>Classes</h3>
+                    <h5>Total classes:  @if (! empty($school->classes)){{ count($school->classes) }}@else 0 @endif</h5>
+                    <a class="btn btn-success" href="{{ route('class.create') }}">Create Class</a>
                 </div>
                 <div class="panel-body">
-                    <table class="table roles-table">
+                    <table class="table roles-table table-hover">
                         <tr>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Pupil #</th>
                             <th class="text-right">Actions</th>
                         </tr>
-
-                        @forelse ($roles as $role)
+                        @if (! empty($school->classes))
+                        @foreach ($school->classes as $class)
                             <tr>
-                                <td>{{ $role->display_name }}</td>
-                                <td>{{ $role->description }}</td>
+                                <td>{{ $class->name }}</td>
+                                <td>{{ count($class->users) }}</td>
                                 <td class="role-actions">
                                     
-                                    <a class="btn btn-sm btn-info" href="{{ route('role.edit', $role->id) }}">Edit</a>
+                                    <a class="btn btn-sm btn-info" href="{{ route('class.edit', $class->id) }}">Edit</a>
 
-                                    <form action="{{ route('role.destroy', $role->id) }}" method="POST">
+                                    <form action="{{ route('class.destroy', $class->id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
@@ -35,11 +36,8 @@
 
                                 </td>
                             </tr>
-                        @empty
-                        <tr>
-                            <td>No roles.</td>
-                        </tr>
-                        @endforelse
+                        @endforeach
+                        @endif
                     </table>
                 </div>
             </div>

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Role;
-use App\Permission;
-use Illuminate\Support\Facades\DB;
+use Auth;
+use App\School;
+use App\SchoolClass;
+use App\Subject;
+use DB;
 
-class RoleController extends Controller
+class SchoolClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,16 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $school_id = Auth::user()->school_id;
 
-        return view('admin.role.index', compact('roles'));
+        $school = School::find($school_id);
+
+        if (! empty($school->classes))
+        {
+            $school->classes;
+        }
+
+        return view('school-admin.class.index', compact('school'));
     }
 
     /**
@@ -29,9 +38,11 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
+        $school_id = Auth::user()->school_id;
 
-        return view('admin.role.create', compact('permissions'));
+        $school = School::find($school_id);
+        
+        return view('school-admin.class.create', compact('school'));
     }
 
     /**
@@ -42,16 +53,18 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = Role::create($request->except(['permission', '_token']));
 
-        if(! empty($request->permission))
-        foreach ($request->permission as $key => $value)
-        {
-            $role->attachPermission($value);
-        }
+        $class = SchoolClass::create($request->all());
 
-        return redirect()->route('role.index');
+        $school_id = Auth::user()->school_id;
+
+        $class->school_id = $school_id;
+
+        $class->save();
+
+        return redirect()->route('class.index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -60,7 +73,12 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $class = SchoolClass::findOrFail($id);
+
+        $class->users;
+
+        return view('school-admin.class.show', compact('class'));
+        
     }
 
     /**
@@ -71,13 +89,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::findOrFail($id);
+        $class = SchoolClass::findOrFail($id);
 
-        $permissions = Permission::all();
-
-        $role_permissions = $role->perms()->pluck('id', 'id')->toArray();
-
-        return view('admin.role.edit', compact(['role', 'role_permissions', 'permissions']));
+        return view('school-admin.class.edit', compact('class'));
     }
 
     /**
@@ -89,20 +103,11 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = Role::findOrFail($id);
-        $role->name = $request->name;
-        $role->display_name = $request->display_name;
-        $role->description = $request->description;
-        $role->save();
+        $class = SchoolClass::findOrFail($id);
+        $class->name = $request->name;
+        $class->save();
 
-        DB::table('permission_role')->where('role_id', $id)->delete();
-
-        foreach ($request->permission as $key => $value)
-        {
-            $role->attachPermission($value);
-        }
-
-        return redirect()->route('role.index');
+        return redirect()->route('class.index');
     }
 
     /**
@@ -113,8 +118,12 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('roles')->where('id', $id)->delete();
+        SchoolClass::findOrFail($id);
 
-        return redirect()->route('role.index');
+        SchoolClass::destroy($id);
+
+        
+
+        return redirect()->route('class.index');
     }
 }

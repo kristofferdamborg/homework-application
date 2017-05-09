@@ -13,11 +13,24 @@
 
 // "Welcome view" route
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check())
+    {
+        return view('home');
+    }
+    else 
+    {
+        return view('welcome');
+    }
 });
 
 // Scaffolded Authentication Routes
 Auth::routes();
+
+// Fetching schools in register view
+Route::get('register', 'Auth\RegisterController@index')->name('register');
+
+// Fetching classes for selected school in register view (AJAX Call)
+Route::get('/findClass','Auth\RegisterController@findClass');
 
 // "Home view" route
 Route::get('/home', 'HomeController@index')->name('home');
@@ -26,14 +39,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/google', ['as' => 'auth/google', 'uses' => 'Auth\LoginController@redirectToProvider']);
 Route::get('auth/google/callback', ['as' => 'auth/google/callback', 'uses' => 'Auth\LoginController@handleProviderCallback']);
 
-//Route::group(['prefix' => 'admin', 'middleware' => ['role:teacher']], function() {
-    Route::group(['middleware' => 'auth'], function() {
+// School Admin role ONLY routes
+Route::group(['middleware' => ['role:school-admin']], function() {
+   
+    Route::resource('class', 'SchoolClassController');
 
+});
+
+// Admin and School Admin role ONLY routes
+Route::group(['middleware' => ['role:admin|school-admin']], function() {
+   
+    Route::resource('user', 'UserController');
+
+});
+
+// Admin role ONLY routes
+Route::group(['middleware' => ['auth', 'role:admin']], function() {
+   
     Route::resource('role', 'RoleController');
-    Route::get('/admin', [
-        'as' => 'admin.index',
-        'uses' => function () {
-            return view('admin.index');
-        }
-    ]);
+    Route::resource('school', 'SchoolController');
+
 });

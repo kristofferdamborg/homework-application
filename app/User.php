@@ -19,7 +19,7 @@ class User extends Authenticatable
 
     // Values that are "fillable" by user input
     protected $fillable = [
-        'name', 'email', 'password', 'google_id', 'avatar',
+        'name', 'email', 'password', 'google_id', 'avatar', 'school_id'
     ];
 
     /**
@@ -30,4 +30,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function school()
+    {
+        return $this->belongsTo('App\School');
+    }
+
+    public function class()
+    {
+        return $this->belongsTo('App\SchoolClass');
+    }
 }

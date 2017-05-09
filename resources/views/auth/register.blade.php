@@ -10,11 +10,11 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        @if (! session('user')->id == NULL)
+                        @if (! session('user') == NULL)
                             <input type="hidden" name="google_id" value="{{ session('user')->id }}">
                         @endif
 
-                        @if (! session('user')->avatar == NULL)
+                        @if (! session('user') == NULL)
                             <input type="hidden" name="avatar" value="{{ session('user')->avatar }}">
                         @endif
 
@@ -22,12 +22,9 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="@if (! session('user')->name == NULL){{ session('user')-> name}}
-                                @else
-                                {{ old('name') }}
-                                @endif" 
+                                <input id="name" type="text" class="form-control" name="name" value="@if (! session('user') == NULL){{ session('user')-> name}}@else{{ old('name') }}@endif" 
                                 required autofocus
-                                 @if (! session('user')->name == NULL)
+                                 @if (! session('user') == NULL)
                                 readonly
                                 @endif>
 
@@ -43,12 +40,9 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="@if (! session('user')->email == NULL){{ session('user')->email }}
-                                @else
-                                {{ old('email') }}
-                                @endif" 
+                                <input id="email" type="email" class="form-control" name="email" value="@if (! session('user') == NULL){{ session('user')->email }}@else{{ old('email') }}@endif" 
                                 required
-                                 @if (! session('user')->name == NULL)
+                                 @if (! session('user') == NULL)
                                 readonly
                                 @endif>
                                 @if ($errors->has('email'))
@@ -59,29 +53,28 @@
                             </div>
                         </div>
 
+                  
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <select class="form-control">
-                                    <option value="" disabled selected>Vælg din skole</option>
-                                    <option value="Sofiendalsskolen">Sofiendalsskolen</option>
-                                    <option value="Sofiendalsskolen">Sofiendalsskolen</option>
-                                    <option value="Sofiendalsskolen">Sofiendalsskolen</option>
+                                <select class="form-control" name="school_id" id="school" required>
+                                    <option value="" disabled selected>Vælg skole</option>
+                                    @foreach($schools as $school)
+                                        <option value="{{$school->id}}">{{$school->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <select class="form-control">
-                                    <option value="" disabled selected>Vælg din klasse</option>
-                                    <option value="klaase1">Klasse 1</option>
-                                    <option value="klaase1">Klasse 1</option>
-                                    <option value="klaase1">Klasse 1</option>
+                                <select class="form-control" name="class_id" id="my-class" required>
+                                    <option value="" disabled selected>Vælg klasse</option>
                                 </select>
                             </div>
                         </div>
 
-                        @if (session('user')->email == NULL)
+                        @if (session('user') == NULL)
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -121,4 +114,38 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(document).on('change','#school', function() {
+
+			var school_id = $(this).val();
+
+			var op =" ";
+
+			$.ajax({
+				type:'get',
+				url:'{!!URL::to('findClass')!!}',
+				data:{'id' : school_id},
+				success:function(data) {
+	
+					op+='<option value="" selected disabled>Vælg klasse</option>';
+					for(var i=0;i<data.length;i++){
+					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+				   }
+
+				   $(document).find('#my-class').html(" ");
+				   $(document).find('#my-class').append(op);
+				},
+				error:function(){
+
+				}
+			});
+		});
+	});
+</script>
+
+
+
 @endsection

@@ -6,26 +6,27 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="roles-heading panel-heading">
-                    <h3>Roles</h3>
-                    <a class="btn btn-success" href="{{ route('role.create') }}">Create Role</a>
+                    <h3>Teachers</h3>
+                    <h5>Total teachers:  @if (! empty($users)){{ count($users) }}@else 0 @endif</h5>
+                    <a class="btn btn-success" href="{{ route('user.create') }}">Register Teacher</a>
                 </div>
                 <div class="panel-body">
-                    <table class="table roles-table">
+                    <table class="table roles-table table-hover">
                         <tr>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Email</th>
                             <th class="text-right">Actions</th>
                         </tr>
 
-                        @forelse ($roles as $role)
+                        @forelse ($users as $user)
                             <tr>
-                                <td>{{ $role->display_name }}</td>
-                                <td>{{ $role->description }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td class="role-actions">
                                     
-                                    <a class="btn btn-sm btn-info" href="{{ route('role.edit', $role->id) }}">Edit</a>
+                                    <a class="btn btn-sm btn-info" href="{{ route('user.edit', $user->id) }}">Edit</a>
 
-                                    <form action="{{ route('role.destroy', $role->id) }}" method="POST">
+                                    <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
@@ -37,7 +38,7 @@
                             </tr>
                         @empty
                         <tr>
-                            <td>No roles.</td>
+                            <td>No user.</td>
                         </tr>
                         @endforelse
                     </table>

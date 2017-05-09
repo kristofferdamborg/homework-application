@@ -43,7 +43,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                    @role('admin')
+                        <li><a href="{{ route('role.index') }}">Roles</a></li>
+                        <li><a href="{{ route('school.index') }}">Schools</a><li>
+                        <li><a href="{{ route('user.index') }}">Users</a></li>
+                    @endrole
+                    @role('school-admin')
+                        <li><a href="{{ route('class.index') }}">Classes</a></li>
+                        <li><a href="{{ route('user.index') }}">Teachers</a></li>
+                    @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,7 +81,7 @@
                             </li>
                             @if (! Auth::user()->avatar == NULL)
                             <li>
-                                <img style="width: 90%; border-radius: 50%; margin-top: 2px;" src="{{ Auth::user()->avatar }}">
+                                <img style="border: 1px solid lightgrey; width: 90%; border-radius: 50%; margin-top: 2px;" src="{{ Auth::user()->avatar }}">
                             </li>
                             @endif
                         @endif
