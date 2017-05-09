@@ -9,7 +9,6 @@
                 <h3>
                     Edit School
                 </h3>
-                <a href="{{ route('school.create') }}">
                 </div>
 
                 <div class="panel-body">
