@@ -73,3 +73,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::resource('school', 'SchoolController');
 
 });
+
+Route::group(['middleware' => ['auth', 'role:teacher']], function() {
+    Route::resource('homework', 'HomeworkController');
+
+});
