@@ -11,11 +11,23 @@
 |
 */
 
-// "Welcome view" route
+// Home / dashboard routes
 Route::get('/', function () {
-    if (Auth::check())
+    if (Auth::check() && Auth::user()->hasRole('admin'))
     {
         return view('home');
+    }
+    elseif (Auth::check() && Auth::user()->hasRole('school-admin'))
+    {
+        return view('home');
+    }
+    elseif (Auth::check() && Auth::user()->hasRole('teacher'))
+    {
+        return view('dashboard');
+    }
+    elseif (Auth::check() && Auth::user()->hasRole('pupil'))
+    {
+        return view('dashboard');
     }
     else 
     {
@@ -43,6 +55,7 @@ Route::get('auth/google/callback', ['as' => 'auth/google/callback', 'uses' => 'A
 Route::group(['middleware' => ['role:school-admin']], function() {
    
     Route::resource('class', 'SchoolClassController');
+    Route::resource('subject', 'SubjectController');
 
 });
 

@@ -1,0 +1,59 @@
+/* Navbar / Navigation Styles */
+
+nav.navbar.navbar-default.navbar-static-top {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.navbar {
+
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:before {
+            content: none;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+
+    .navbar-brand {
+        color: #fff;
+        font-size: 30px;
+    }
+}
+
+ul.nav.navbar-nav li {
+    display: flex;
+    align-items: center;
+} 
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    font-size: 16px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 1px solid #fff;
+    padding: 3px;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.caret {
+    border-top: 8px dashed;
+    border-top: 8px solid \9;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
