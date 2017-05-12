@@ -53,11 +53,11 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
 
 });
 
-<<<<<<< HEAD
+
 Route::resource('session', 'SessionController');
-=======
+
 Route::group(['middleware' => ['auth', 'role:teacher']], function() {
     Route::resource('homework', 'HomeworkController');
 
 });
->>>>>>> a2b17f4d6abd7122b76ab6b5f71dcbf566f3b585
+
