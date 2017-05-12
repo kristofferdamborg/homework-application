@@ -25,8 +25,6 @@ class HomeController extends Controller
         $user->school;
         $user->school_class;
 
-        $session = Auth::user()->sessions()->latest()->first();
-
         if (Auth::check() && Auth::user()->hasRole('admin'))
         {
             return view('home', compact('user'));
@@ -37,11 +35,13 @@ class HomeController extends Controller
         }
         elseif (Auth::check() && Auth::user()->hasRole('teacher'))
         {
-            return view('dashboard', compact('user', 'session'));
+            return view('dashboard', compact('user'));
         }
         elseif (Auth::check() && Auth::user()->hasRole('pupil'))
         {
-            return view('dashboard', compact('user'));
+            $session = Auth::user()->sessions()->latest()->first();
+            
+            return view('dashboard', compact('user', 'session'));
         }
         else 
         {

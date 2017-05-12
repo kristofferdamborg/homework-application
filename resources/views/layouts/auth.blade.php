@@ -25,7 +25,9 @@
 
     <div id="app">
 
-        @yield('content')
+        <div class="auth-container">
+            @yield('content')
+        </div>
 
     </div>
 

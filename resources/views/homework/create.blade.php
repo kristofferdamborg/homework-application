@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="description" placeholder="Beskrivelse...">
                         </div>
-
+                        
                         <div class="form-group">
                             <select class="form-control" name="school_class_id" required>
                                 <option value="" disabled selected>Vælg Klasse                             
