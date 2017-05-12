@@ -9,7 +9,7 @@
                 <div class="row">
                 <div class="col-xs-6">
                 <h3 >
-                    Lectie Oversigt
+                    Lektie Oversigt
                 </h3>
                 <p>Vælg Klasse</p>
                 </div>

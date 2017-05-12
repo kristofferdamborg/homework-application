@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h3>
-                    Edit Homework
+                    Edit Lektie
                 </h3>
                 </div>
 

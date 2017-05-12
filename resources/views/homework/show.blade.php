@@ -6,11 +6,19 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                <div class="row">
+                <div class="col-xs-6">
                 <h3>
                     Lectie Oversigt For {{ $schoolclass->name }}
                 </h3>
-                <p><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
+                <p style="font-size: large;"><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
+                </div><div class="col-xs-6">
+                <h3><a style="float: right;" class="btn btn-primary btn-lg" href="{{ route('homework.create') }}">Opret Lektie</a></h3>
                 </div>
+                
+                </div>	
+                </div>
+
                 <div class="panel-body">
 		<table class="table table-responsive table-hover" style="width:100%; font-size: large;">
 			<tr style="text-align: center;">

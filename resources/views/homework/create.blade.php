@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h3>
-                    Opret Hjemmearbejde
+                    Opret Lektie
                 </h3>
                 </div>
 
@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="description" placeholder="Beskrivelse...">
+                            <textarea class="form-control" name="description" placeholder="Beskrivelse..."></textarea>
                         </div>
                         
                         <div class="form-group">
