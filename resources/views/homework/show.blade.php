@@ -9,9 +9,10 @@
                 <h3>
                     Lectie Oversigt For {{ $schoolclass->name }}
                 </h3>
+                <p><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
                 </div>
                 <div class="panel-body">
-		<table style="width:100%; font-size: large;">
+		<table class="table table-responsive table-hover" style="width:100%; font-size: large;">
 			<tr style="text-align: center;">
 				<th>Title</th>
 				<th>Beskrivelse</th> 
@@ -21,16 +22,18 @@
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
-			@foreach ($schoolclass->homeworks as $homework)
-			<tr style="border-bottom: 2px solid gray; height: 35px;">
-				<td>{{ $homework->title }}</td>
-		    		<td>{{ $homework->description }}</td> 
-		    		<td>{{ $arr[$homework->subject_id] }}</td>
-		    		<td>{{ $homework->started_at }}</td> 
-		    		<td>{{ $homework->due_at }}</td>
+			@foreach ($schoolclass->homeworks as $HW)
+			<tr style="border-bottom: 1px solid gray; height: 35px;">
+				<td>{{ $HW->title }}</td>
+		    		<td>{{ $HW->description }}</td> 
+		    		<td>{{ $arr[$HW->subject_id] }}</td>
+		    		<td>{{ $HW->started_at }}</td> 
+		    		<td>{{ $HW->due_at }}</td>
 
-		    		<a href="{{ route('homework.edit', $homework->id) }}"><td style="color: lightgreen; text-align: center;"><a href=""><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></td></a>
-		    		<a href="{{ route('homework.destroy', $homework->id) }}"><td style="color: red; text-align: center;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td></a>
+		    		<td style=" text-align: center;"><a class="btn btn-default btn-lg" href="{{ route('homework.edit', $HW->id) }}"><span style="color: lightgreen;" class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
+		    		<td style="text-align: center;"><form action="{{ URL::route('homework.destroy', $HW->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <button class="btn btn-default btn-lg"><span style="color: red;" class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
 			</tr>
 			@endforeach
 		</table>

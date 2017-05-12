@@ -44,6 +44,7 @@ class HomeworkController extends Controller
     public function store(Request $request)
     {
         Homework::create($request->all());
+        return redirect()->route('homework.index');
     }
     /**
      * Display the specified resource.
@@ -85,6 +86,12 @@ class HomeworkController extends Controller
     public function update(Request $request, $id)
     {
         $homework = Homework::findOrFail($id);
+        $homework->title = $request->title;
+        $homework->description = $request->description;
+        $homework->school_class_id = $request->school_class_id;
+        $homework->subject_id = $request->subject_id;
+        $homework->started_at = $request->started_at;
+        $homework->due_at = $request->due_at;
         $homework->save();
         return redirect()->route('homework.index');
     }

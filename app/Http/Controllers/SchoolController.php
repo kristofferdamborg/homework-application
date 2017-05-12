@@ -59,6 +59,6 @@ class SchoolController extends Controller
 
         School::destroy($id);
 
-        return redirect()->route('school.index');
+        return redirect()->route('homework.index');
     }
 }

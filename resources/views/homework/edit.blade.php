@@ -17,16 +17,16 @@
                     {{ method_field('PATCH') }}
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Title" value="{{$homework->title}}">
+                            <input type="text" class="form-control" name="title" placeholder="{{$homework->title}}">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="description" placeholder="Beskrivelse..." value="{{$homework->description}}">
+                            <input type="text" class="form-control" name="description" placeholder="{{$homework->description}}">
                         </div>
 
                         <div class="form-group">
                             <select class="form-control" name="school_class_id" required>
-                                <option value="value="{{$homework->school_class_id}}"" disabled selected>Vælg Klasse                             
+                                <option value="" disabled selected>Vælg Klasse                             
                                 </option>
                                 @foreach($school->classes as $class)
                                     <option value="{{$class->id}}">{{$class->name}}</option>
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <select class="form-control" name="subject_id" required>
-                                <option value="value="{{$homework->subject_id}}"" disabled selected>Vælg Fag                             
+                                <option value="" disabled selected>Vælg Fag                             
                                 </option>
                                 @foreach($school->subjects as $subject)
                                     <option value="{{$subject->id}}">{{$subject->name}}</option>
@@ -46,12 +46,12 @@
 
                         <div class="form-group">
                             Hvornår skal det offentliggøres?
-                            <input type="date" class="form-control" name="started_at" placeholder="" value="{{$homework->started_at}}">
+                            <input type="date" class="form-control" name="started_at" placeholder="{{$homework->started_at}}">
                         </div>
 
                         <div class="form-group">
                             Hvornår skal det være færdigt?
-                            <input type="date" class="form-control" name="due_at" placeholder="" value="{{$homework->due_at}}">
+                            <input type="date" class="form-control" name="due_at" placeholder="{{$homework->due_at}}" >
                         </div>
 
                     <div class="form-group">
