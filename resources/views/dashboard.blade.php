@@ -42,12 +42,13 @@
                         {{ method_field('PATCH') }}
 
                         <div class="form-group">
-                            <h4>Hvad har du arbejdet med i denne session?</h4>
+                            <h4>Hvad har du arbejdet med i dag?</h4>
                             <textarea required maxlength="250" class="form-control" name="description"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <input style="background-color: #f0a960" id="check-out-2" type="submit" value="Tjek ud" class="dashboard-box-btn btn btn-default">
+                            <input id="check-out-2" type="submit" value="Tjek ud" class="dashboard-box-btn btn-check-out btn btn-default">
+                            <a href="#" id="check-out-cancel" class="dashboard-box-btn btn-cancel btn btn-danger">Annuller</a>
                             <input style="display: none" id="submit-loading-check-out" type="submit" value="Tjekker ud.." class="dashboard-box-btn dashboard-box-btn-loading-2 btn btn-default" readonly>
                         </div>
 
@@ -94,7 +95,12 @@
 
             $('#check-out-2').on('click', function (e) {
                 $('#check-out-2').hide();
+                $('#check-out-cancel').hide();
                 $('#submit-loading-check-out').show();
+            });
+
+            $('#check-out-cancel').on('click', function (e) {
+                $('.check-out-box').hide();
             });
 
         });
