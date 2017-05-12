@@ -31,8 +31,8 @@
                         <li><a href="{{ route('subject.index') }}">Subjects</a></li>
                     @endrole
                      @role('teacher')
-                        <li><a href="">HJEM</a></li>
-                        <li><a href="">LEKTIER</a></li>
+                        <li><a href="{{ url('/') }}">HJEM</a></li>
+                        <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
                         <li><a href="">KALENDER</a></li>
                     @endrole
                     </ul>

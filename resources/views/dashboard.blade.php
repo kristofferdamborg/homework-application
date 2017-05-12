@@ -42,8 +42,9 @@
                         {{ method_field('PATCH') }}
 
                         <div class="form-group">
+                            <h2>Lige inden at du tjekker ud..</h2>
                             <h4>Hvad har du arbejdet med i dag?</h4>
-                            <textarea required maxlength="250" class="form-control" name="description"></textarea>
+                            <textarea id="session-description" required maxlength="250" class="form-control" name="description"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -92,11 +93,17 @@
             $('#check-out-1').on('click', function (e) {
                 $('.check-out-box').fadeIn(400).css('display', 'flex');
             });
-
+                
             $('#check-out-2').on('click', function (e) {
+                
+            if ($("#session-description").val()) {
+
                 $('#check-out-2').hide();
                 $('#check-out-cancel').hide();
                 $('#submit-loading-check-out').show();
+                
+                }
+
             });
 
             $('#check-out-cancel').on('click', function (e) {
