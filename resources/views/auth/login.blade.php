@@ -1,72 +1,77 @@
 @extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
+<div class="login-container">
+    <h1 class="text-center">Velkommen</h1>
+    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+        {{ csrf_field() }}
+    
+    <div class="login-form-container">
 
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label for="email" class="col-md-3 control-label">Email</label>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            <div class="col-md-9">
+                <input id="username" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Kodeord</label>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+            <label for="password" class="col-md-3 control-label">Kodeord</label>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            <div class="col-md-9">
+                <input id="password" type="password" class="form-control" name="password" required>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Husk mig
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Log ind
-                                </button>
+        <div class="form-group">
+            <div class="login-btn-container col-md-9 col-md-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input id="remember-checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}><p style="margin-left: 5px;">Husk mig</p>
+                    </label>
+                </div>
+                <div class="login-btn">
+                    <button type="submit" class="btn btn-primary">
+                        Log ind
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                                <a class="" href="{{ URL::route('auth/google') }}">
-                                    <img src="/img/btn_google.svg">
-                                </a>
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-3">
 
-                                <a class="btn btn-link" href="{{ route('register') }}">
-                                    Ny bruger?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                <a style="text-decoration: none!important;" href="{{ URL::route('auth/google') }}">
+                    <div class="google-login-btn">
+                     <img src="/img/btn_google.svg">
+                     <p>Log ind med Google+</p>
+                    </div>
+                </a>
+
+                <div class="new-user-container">
+                <p>Ny bruger?</p>
+                <a class="btn btn-primary" href="{{ route('register') }}">
+                    Tilmeld dig
+                </a>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
+              
 @endsection

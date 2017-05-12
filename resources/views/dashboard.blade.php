@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <input id="check-in" type="submit" value="Tjek ind" class="dashboard-box-btn btn btn-default">
-                        <input style="display: none" id="submit-loading" type="submit" value="Tjekker ud.." class="dashboard-box-btn dashboard-box-btn-loading-2 btn btn-default" readonly>
+                        <input style="display: none" id="submit-loading" type="submit" value="Tjekker ind.." class="dashboard-box-btn dashboard-box-btn-loading btn btn-default" readonly>
                     </div>
                     
                 </form>
@@ -75,7 +75,7 @@
        </div>
        <div class="dashboard-box col-md-4">
             <div class="dashboard-box-inner">
-                <h3>Overblik</h3>
+                <h3>Begivenheder (Events)?</h3>
             </div>
        </div>
     </div>

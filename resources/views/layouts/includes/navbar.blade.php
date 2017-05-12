@@ -30,7 +30,12 @@
                         <li><a href="{{ route('user.index') }}">Teachers</a></li>
                         <li><a href="{{ route('subject.index') }}">Subjects</a></li>
                     @endrole
-                     @role('teacher')
+                    @role('teacher')
+                        <li><a href="{{ url('/') }}">HJEM</a></li>
+                        <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
+                        <li><a href="">KALENDER</a></li>
+                    @endrole
+                    @role('pupil')
                         <li><a href="{{ url('/') }}">HJEM</a></li>
                         <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
                         <li><a href="">KALENDER</a></li>

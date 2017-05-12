@@ -1,0 +1,126 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #9ecead;
+}
+
+.login-container {
+
+    color: #fff;
+    margin-top: -80px;
+
+    h1 {
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    form {
+        background-color: #8ea88d;
+        padding: 50px 60px 40px 60px!important;
+
+        label.control-label {
+            text-align: left!important;
+            font-weight: 400;
+        }
+
+        #remember-checkbox {
+            background-color: white!important;
+            color: white!important;
+            border: none!important;
+            border-radius: 0!important;
+            box-shadow: none!important;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            margin-left: -20px;
+        }
+    }
+
+     input.form-control {
+            min-width: 234px;
+            width: 100%!important;
+            border-radius: 0;
+            border: none!important;
+            outline: none!important;
+            box-shadow: none!important;
+        }
+
+    select.form-control {
+            min-width: 234px;
+            width: 100%!important;
+            border-radius: 0;
+            border: none!important;
+            outline: none!important;
+            box-shadow: none!important;
+    }
+}
+
+.login-form-container {
+    margin-left: -10px;
+}
+
+.login-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.google-login-btn {
+    height: 43px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    text-decoration: none!important;
+
+    img {
+        margin-left: -4px;
+    }
+
+    p {
+        color: #000000!important;
+        margin: 0;
+        font-size: 13px;
+        margin-left: 8px;
+        margin-top: -1px;
+        text-decoration: none!important;
+
+        &:hover {
+            color: #3f3f3f!important;
+        }
+    }
+}
+
+.new-user-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 30px;
+
+    p {
+        margin: 0;
+        margin-right: 8px;
+    }
+}
+
+.register-btn {
+    margin-right: 3px;
+
+    button {
+        font-size: 18px;
+    }
+}
+
+#pass-confirm-label {
+    margin-top: -10px;
+}
