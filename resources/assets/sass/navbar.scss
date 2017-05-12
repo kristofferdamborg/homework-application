@@ -20,18 +20,82 @@ nav.navbar.navbar-default.navbar-static-top {
         &:after {
             content: none;
         }
+
+        .navigation {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     .navbar-brand {
         color: #fff;
         font-size: 30px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        height: 85px;
+        width: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px!important;
+
+        &:hover {
+            color: #fff;
+            opacity: 0.8;
+        }
     }
 }
 
-ul.nav.navbar-nav li {
+ul.nav.navbar-nav {
     display: flex;
     align-items: center;
-} 
+    margin-left: 50px!important;
+
+    li {
+    display: flex;
+    align-items: center;
+    } 
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 0;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 20px;
+        text-transform: uppercase;
+    }
+}
+
+.dropdown {
+    margin-bottom: -3px;
+}
+
+ul.dropdown-menu {
+    right: 0;
+    left: inherit!important;
+
+    a {
+        margin-left: 0;
+    }
+}
+
+.separated-link {
+    margin-top: 5px;
+    border-top: 1px lightgrey solid;
+    padding-top: 10px;
+}
+
+a.dropdown-toggle:hover {
+    border-bottom: none!important;
+    margin-bottom: 0px;
+}
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
@@ -40,13 +104,18 @@ ul.nav.navbar-nav li {
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff;
+    opacity: 0.8;
+    border-bottom: 2px solid white;
+    margin-bottom: -2px;
 }
 
 .avatar {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: 1px solid #fff;
     padding: 3px;
-    margin-right: 12px;
+    margin-right: 10px;
     margin-left: 12px;
 }
 

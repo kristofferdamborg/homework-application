@@ -12,12 +12,12 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        LOGO
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    
+ 
+                    <div class="navigation">
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav">
                     @role('admin')
@@ -30,10 +30,17 @@
                         <li><a href="{{ route('user.index') }}">Teachers</a></li>
                         <li><a href="{{ route('subject.index') }}">Subjects</a></li>
                     @endrole
+                     @role('teacher')
+                        <li><a href="">HJEM</a></li>
+                        <li><a href="">LEKTIER</a></li>
+                        <li><a href="">KALENDER</a></li>
+                    @endrole
+                    </ul>
+                    <ul class="nav-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Log ind</a></li>
+                            <li><a href="{{ route('register') }}">Opret bruger</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -45,6 +52,11 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="#">
+                                            Profil
+                                        </a>
+                                    </li>
+                                    <li class="separated-link">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -59,6 +71,6 @@
                             </li>
                         @endif
                     </ul>
-                </div>
+             </div>
             </div>
         </nav>

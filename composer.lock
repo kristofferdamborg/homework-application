@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f826b1f4b42d06846f7d39f0d87dfb2",
+    "content-hash": "9084be5f7514658b30996d9e7dc92973",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2160,6 +2160,57 @@
             "time": "2016-09-20T12:50:39+00:00"
         },
         {
+            "name": "uxweb/sweet-alert",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uxweb/sweet-alert.git",
+                "reference": "d32915471455061d6257448cbb8de16ecc521331"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uxweb/sweet-alert/zipball/d32915471455061d6257448cbb8de16ecc521331",
+                "reference": "d32915471455061d6257448cbb8de16ecc521331",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UxWeb\\SweetAlert\\": "src/SweetAlert/"
+                },
+                "files": [
+                    "src/SweetAlert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uziel Bueno",
+                    "email": "ux.webs@gmail.com"
+                }
+            ],
+            "description": "A simple PHP package to show Sweet Alerts with the Laravel Framework",
+            "keywords": [
+                "alert",
+                "laravel",
+                "notifier",
+                "sweet"
+            ],
+            "time": "2017-03-27T03:54:49+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -3131,6 +3182,53 @@
                 "xunit"
             ],
             "time": "2016-12-08T20:27:08+00:00"
+        },
+        {
+            "name": "raymondwilkinson/sweetalert-laravel",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RaymondWilkinson/Sweetalert-Laravel.git",
+                "reference": "bbc87b9fd8a9cb2bcd8f8de6cd4b342ebc050332"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RaymondWilkinson/Sweetalert-Laravel/zipball/bbc87b9fd8a9cb2bcd8f8de6cd4b342ebc050332",
+                "reference": "bbc87b9fd8a9cb2bcd8f8de6cd4b342ebc050332",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RaymondWilkinson\\SweetalertLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raymond Wilkinson",
+                    "email": "eleray13@hotmail.com"
+                }
+            ],
+            "description": "Simple way to flash sweetalert messages to the screen for laravel.",
+            "keywords": [
+                "alerts",
+                "flash messages",
+                "laravel",
+                "sweetalert"
+            ],
+            "time": "2016-06-21T07:58:24+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

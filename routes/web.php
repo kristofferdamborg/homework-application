@@ -12,28 +12,7 @@
 */
 
 // Home / dashboard routes
-Route::get('/', function () {
-    if (Auth::check() && Auth::user()->hasRole('admin'))
-    {
-        return view('home');
-    }
-    elseif (Auth::check() && Auth::user()->hasRole('school-admin'))
-    {
-        return view('home');
-    }
-    elseif (Auth::check() && Auth::user()->hasRole('teacher'))
-    {
-        return view('dashboard');
-    }
-    elseif (Auth::check() && Auth::user()->hasRole('pupil'))
-    {
-        return view('dashboard');
-    }
-    else 
-    {
-        return view('welcome');
-    }
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 // Scaffolded Authentication Routes
 Auth::routes();
@@ -73,3 +52,5 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::resource('school', 'SchoolController');
 
 });
+
+Route::resource('session', 'SessionController');

@@ -1,0 +1,134 @@
+.dashboard-container {
+    margin-top: 50px;
+}
+
+.dashboard-profile-info {
+
+    h2 {
+        display: inline-block;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 1px solid #636b6f;
+    }
+    span {
+        color: #9ecead;
+    }
+}
+
+.dashboard-avatar {
+    border-radius: 50%;
+    border: 3px solid rgba(158, 206, 173, 0.4);
+    background-color: #f1f1f1;
+    width: 200px;
+    height: 200px;
+    margin-left: 25px;
+}
+
+.dashboard-box-row {
+    padding-top: 30px;
+}
+
+.dashboard-box {
+    padding: 20px;
+    height: 300px;
+
+    &-inner {
+        background-color: #e0ebe3;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        height: 260px;
+
+        p.text-center {
+            margin-top: 35px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 3px;
+            color: #55735e;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+
+    &-btn {
+        background-color: #9ecead;
+        font-weight: 600;
+        color: #fff;
+        padding: 10px 20px 10px 20px;
+        font-size: 20px;
+        margin-top: 30px;
+
+        &:focus {
+            background-color: #9ecead!important;
+            color: #fff!important;
+            outline: none!important;
+            box-shadow: none!important;
+        }
+
+        &:active {
+            background-color: #9ecead!important;
+            color: #fff!important;
+            outline: none!important;
+            box-shadow: none!important;
+        }
+
+        &:hover {
+            background-color: #75ab86;
+            color: #fff;
+        }
+
+        &-loading {
+            cursor: wait!important;
+            background-color: #b9ddc4!important;
+        }
+
+        &-loading-2 {
+            cursor: wait!important;
+            background-color: #edbb87!important;
+        }
+    }
+}
+
+.btn-check-out {
+    background-color: #f0a960;
+
+    &:hover {
+        background-color: #ce7921;
+    }
+
+    &:focus {
+        background-color: #f0a960!important;
+    }
+
+    &:active {
+        background-color: #f0a960!important;
+    }
+}
+
+.check-out-box {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .check-out-form {
+        background-color: white;
+        padding: 40px;
+
+        textarea {
+            resize: none;
+            height: 150px;
+            width: 350px;
+        }
+    }
+}

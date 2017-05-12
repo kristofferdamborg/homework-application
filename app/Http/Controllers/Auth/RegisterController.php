@@ -10,6 +10,7 @@ use App\Role;
 use App\School;
 use Illuminate\Http\Request;
 use App\SchoolClass;
+use App\Session;
 
 class RegisterController extends Controller
 {
@@ -92,6 +93,14 @@ class RegisterController extends Controller
         $user->school_class_id = $data['class_id'];
 
         $user->save();
+
+        $session = Session::create();
+
+        $session->user_id = $user->id;
+
+        $session->created_at = NULL;
+
+        $session->save();
 
         if ($user->email == 'kristofferdamborg@gmail.com')
         {

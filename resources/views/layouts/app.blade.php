@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/sweetalert/sweetalert.css">
 
     <!-- Scripts -->
     <script>
@@ -32,5 +33,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/sweetalert/sweetalert.min.js"></script>
+    @include('sweet::alert')
 </body>
 </html>

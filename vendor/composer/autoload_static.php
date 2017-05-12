@@ -18,6 +18,7 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -36,6 +37,10 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'U' => 
+        array (
+            'UxWeb\\SweetAlert\\' => 17,
         ),
         'T' => 
         array (
@@ -60,6 +65,7 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         ),
         'R' => 
         array (
+            'RaymondWilkinson\\SweetalertLaravel\\' => 35,
             'Ramsey\\Uuid\\' => 12,
         ),
         'P' => 
@@ -130,6 +136,10 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'UxWeb\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert',
+        ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
@@ -189,6 +199,10 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'RaymondWilkinson\\SweetalertLaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/raymondwilkinson/sweetalert-laravel/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -327,6 +341,8 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Controllers\\SchoolClassController' => __DIR__ . '/../..' . '/app/Http/Controllers/SchoolClassController.php',
         'App\\Http\\Controllers\\SchoolController' => __DIR__ . '/../..' . '/app/Http/Controllers/SchoolController.php',
+        'App\\Http\\Controllers\\SessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SessionController.php',
+        'App\\Http\\Controllers\\SubjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubjectController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -342,6 +358,7 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\School' => __DIR__ . '/../..' . '/app/School.php',
         'App\\SchoolClass' => __DIR__ . '/../..' . '/app/SchoolClass.php',
+        'App\\Session' => __DIR__ . '/../..' . '/app/Session.php',
         'App\\Subject' => __DIR__ . '/../..' . '/app/Subject.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -350,6 +367,7 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateSchoolClassesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_05_213310_create_school_classes_table.php',
         'CreateSchoolsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_05_131025_create_schools_table.php',
+        'CreateSessionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_204208_create_sessions_table.php',
         'CreateSubjectsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_09_160216_create_subjects_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -2736,6 +2754,8 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
+        'RaymondWilkinson\\SweetalertLaravel\\AlertServiceProvider' => __DIR__ . '/..' . '/raymondwilkinson/sweetalert-laravel/src/AlertServiceProvider.php',
+        'RaymondWilkinson\\SweetalertLaravel\\Flash' => __DIR__ . '/..' . '/raymondwilkinson/sweetalert-laravel/src/Flash.php',
         'RoleTableSeeder' => __DIR__ . '/../..' . '/database/seeds/RoleTableSeeder.php',
         'SchoolClassTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SchoolClassTableSeeder.php',
         'SchoolTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SchoolTableSeeder.php',
@@ -3345,6 +3365,12 @@ class ComposerStaticInit848d0f2797772af27771c1f394a043cf
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'UxWeb\\SweetAlert\\ConvertMessagesIntoSweatAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/ConvertMessagesIntoSweatAlert.php',
+        'UxWeb\\SweetAlert\\LaravelSessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/LaravelSessionStore.php',
+        'UxWeb\\SweetAlert\\SessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SessionStore.php',
+        'UxWeb\\SweetAlert\\SweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlert.php',
+        'UxWeb\\SweetAlert\\SweetAlertNotifier' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertNotifier.php',
+        'UxWeb\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertServiceProvider.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'Zizaco\\Entrust\\Contracts\\EntrustPermissionInterface' => __DIR__ . '/..' . '/zizaco/entrust/src/Entrust/Contracts/EntrustPermissionInterface.php',
