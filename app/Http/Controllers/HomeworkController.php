@@ -95,7 +95,7 @@ class HomeworkController extends Controller
         if (Auth::check() && Auth::user()->hasRole('pupil'))
         {
             return redirect()->route('homework.index');
-        }else 
+        }else{
         {$homework = Homework::findOrFail($id);
         $school_id = Auth::user()->school_id;
         $school = School::find($school_id);

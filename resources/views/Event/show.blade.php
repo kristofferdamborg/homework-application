@@ -12,6 +12,8 @@
                     Event: {{ $event->name }}
                 </h3>
                 </div>
+                @if (Auth::user()->hasRole('pupil'))
+                @else
                 <div class="col-xs-6">
                 <div style="float: right;">
                     <a style="min-width: 200px" class="btn btn-primary btn-lg" href="{{ route('event.edit', $event->id) }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit</a></h3>
@@ -19,6 +21,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                 <button style="min-width: 200px" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button></form></div>
                 </div>
+                @endif
                 </div></div>
 
                 <div class="panel-body">

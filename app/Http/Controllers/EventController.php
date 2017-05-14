@@ -12,24 +12,40 @@ use App\Event;
 class EventController extends Controller
 {
     public function index()
-    {   
-    	$school_id = Auth::user()->school_id;
-        	$school = School::find($school_id);
-        	$arr = array();
-
-        foreach ($school->events as $event) {
-            $arr[$event->school_class_id] = SchoolClass::find($event->school_class_id)->name;
-        }
-
-        	return view('event.index', compact('school','arr'));
+    {
+    	if (Auth::check() && Auth::user()->hasRole('pupil'))
+	{
+	            return redirect()->route('event.stuIndex');
+	}else{   
+		$school_id = Auth::user()->school_id;
+		$school = School::find($school_id);
+		$arr = array();
+		foreach ($school->events as $event) {
+			$arr[$event->school_class_id] = SchoolClass::find($event->school_class_id)->name;
+		}
+		return view('event.index', compact('school','arr'));
+	}
     }
+    public function stuIndex()
+    {   
+    	$class_id = Auth::user()->school_class_id;
+        	$class = SchoolClass::find($class_id);
+
+        	return view('event.stuIndex', compact('class'));
+    }
+
 
     public function create()
     {
+    	if (Auth::check() && Auth::user()->hasRole('pupil'))
+	{
+	            return redirect()->route('event.stuIndex');
+	}else{  
     	$school_id = Auth::user()->school_id;
         	$school = School::find($school_id);
        	$school->classes;
-        return view('event.create', compact('school'));
+        	return view('event.create', compact('school'));
+    	}
     }
 
     public function store(Request $request)
@@ -47,11 +63,16 @@ class EventController extends Controller
 
    public function edit($id)
     {
+    	if (Auth::check() && Auth::user()->hasRole('pupil'))
+	{
+	            return redirect()->route('event.stuIndex');
+	}else{  
     	$event = Event::findOrFail($id);
        	$school_id = Auth::user()->school_id;
         	$school = School::find($school_id);
         	$school->classes;
         	return view('event.edit', compact('event','school'));
+       	}
     }
 
     public function update(Request $request, $id)
@@ -71,8 +92,13 @@ class EventController extends Controller
 
     public function destroy($id)
     {
+    	if (Auth::check() && Auth::user()->hasRole('pupil'))
+	{
+	            return redirect()->route('event.stuIndex');
+	}else{  
     	Event::findOrFail($id);
         	Event::destroy($id);
         	return redirect()->route('event.index');
+        }
     }
 }
