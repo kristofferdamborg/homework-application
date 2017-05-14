@@ -11,11 +11,15 @@
                 <h3>
                     Lectie Oversigt For {{ $schoolclass->name }}
                 </h3>
+                @if (Auth::user()->hasRole('pupil'))
+                </div>
+                @else
                 <p style="font-size: large;"><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
                 </div><div class="col-xs-6">
                 <h3><a style="float: right;" class="btn btn-primary btn-lg" href="{{ route('homework.create') }}">Opret Lektie</a></h3>
                 </div>
-                
+                @endif
+
                 </div>	
                 </div>
 

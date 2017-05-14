@@ -20,7 +20,23 @@ class HomeworkController extends Controller
         $school_id = Auth::user()->school_id;
         $school = School::find($school_id);
         $school->classes;
-        return view('homework.index', compact('school'));
+
+        if (Auth::check() && Auth::user()->hasRole('school-admin'))
+        {
+            return view('homework.index', compact('school'));
+        }
+        elseif (Auth::check() && Auth::user()->hasRole('teacher'))
+        {
+            return view('homework.index', compact('school'));
+        }
+        elseif (Auth::check() && Auth::user()->hasRole('pupil'))
+        {  
+            return redirect()->route('homework.show', Auth::user()->school_class_id);
+        }
+        else 
+        {
+            return "how did you do this, sigh... contact support";
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -29,11 +45,18 @@ class HomeworkController extends Controller
      */
     public function create()
     {
+        if (Auth::check() && Auth::user()->hasRole('pupil'))
+        {
+            return redirect()->route('homework.index');
+        }else 
+        {
         $school_id = Auth::user()->school_id;
         $school = School::find($school_id);
         $school->classes;
         $school->subjects;
         return view('homework.create', compact('school'));
+        }
+
     }
     /**
      * Store a newly created resource in storage.
@@ -69,12 +92,17 @@ class HomeworkController extends Controller
      */
     public function edit($id)
     {
-        $homework = Homework::findOrFail($id);
+        if (Auth::check() && Auth::user()->hasRole('pupil'))
+        {
+            return redirect()->route('homework.index');
+        }else 
+        {$homework = Homework::findOrFail($id);
         $school_id = Auth::user()->school_id;
         $school = School::find($school_id);
         $school->classes;
         $school->subjects;
         return view('homework.edit', compact('homework','school'));
+    }
     }
     /**
      * Update the specified resource in storage.
@@ -103,8 +131,14 @@ class HomeworkController extends Controller
      */
     public function destroy($id)
     {
+        if (Auth::check() && Auth::user()->hasRole('pupil'))
+        {
+            return redirect()->route('homework.index');
+        }else 
+        {
         Homework::findOrFail($id);
         Homework::destroy($id);
         return redirect()->route('homework.index');
+    }
     }
 }

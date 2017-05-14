@@ -24,4 +24,9 @@ class School extends Model
     {
         return $this->hasMany('App\Subject');
     }
+
+        public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }
