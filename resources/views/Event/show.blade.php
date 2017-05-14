@@ -11,6 +11,8 @@
                 <h3 >
                     Event: {{ $event->name }}
                 </h3>
+                <p style="font-size: large;"><a href="{{ route('event.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til event oversigt</a></p>
+                </div><div class="col-xs-6">
                 </div>
                 @if (Auth::user()->hasRole('pupil'))
                 @else
