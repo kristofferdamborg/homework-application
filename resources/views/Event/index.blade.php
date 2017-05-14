@@ -22,7 +22,7 @@
                         <table class="table table-responsive table-hover" style="width:100%; font-size: large;">
                         <tr style="text-align: center;">
                             <th>Navn</th>
-                            <th>Tybe</th> 
+                            <th>Type</th> 
                             <th>Beskrivelse</th>
                             <th>Start tid</th>
                             <th>Slut tid</th>
