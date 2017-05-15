@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/sweetalert/sweetalert.css">
+    @if (! Auth::user()->theme == NULL)
+    <link href="{{ Auth::user()->theme }}" rel="stylesheet">
+    @endif
 
     <!-- Scripts -->
     <script>

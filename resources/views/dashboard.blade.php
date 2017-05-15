@@ -75,7 +75,7 @@
        </div>
        <div class="dashboard-box col-md-4">
             <div class="dashboard-box-inner">
-                <h3>Begivenheder (Events)?</h3>
+                <h3>Kalender</h3>
             </div>
        </div>
     </div>

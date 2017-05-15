@@ -33,14 +33,12 @@
                     @role('teacher')
                         <li><a href="{{ url('/') }}">HJEM</a></li>
                         <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
-                        <li><a href="{{ route('event.index') }}">EVENTS</a></li>
-                        <li><a href="">KALENDER</a></li>
+                        <li><a href="{{ route('event.index') }}">KALENDER</a></li>
                     @endrole
                     @role('pupil')
                         <li><a href="{{ url('/') }}">HJEM</a></li>
                         <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
-                        <li><a href="{{ route('event.index') }}">EVENTS</a></li>
-                        <li><a href="">KALENDER</a></li>
+                        <li><a href="{{ route('event.index') }}">KALENDER</a></li>
                     @endrole
                     </ul>
                     <ul class="nav-right">
@@ -59,7 +57,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('profile.index') }}">
                                             Profil
                                         </a>
                                     </li>

@@ -104,7 +104,7 @@ class RegisterController extends Controller
 
         if ($user->email == 'kristofferdamborg@gmail.com')
         {
-            $user->attachRole(Role::where('name', 'admin')->first());
+            $user->attachRole(Role::where('name', 'pupil')->first());
         }
         elseif ($user->email == 'alexmuderspachnielsen@gmail.com')
         {

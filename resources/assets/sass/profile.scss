@@ -1,0 +1,31 @@
+.theme-picker {
+    display: flex;
+    align-items: center;
+}
+
+.theme-heading h4 {
+        margin-right: 10px;
+    }
+
+.pink-theme-btn {
+    background-color: #EAC1D3!important;
+
+    &:hover {
+        background-color: #CD7193!important;
+    }
+
+    &:active {
+        outline: none!important;
+        border: none!important;
+    }
+
+    &:focus {
+        outline: none!important;
+        border: none!important;
+    }
+
+    &:visited {
+        outline: none!important;
+        border: none!important;
+    }
+}

@@ -1,0 +1,35 @@
+.navbar-default {
+    background-color: #E1ADC4!important;
+}
+
+.dashboard-box-inner {
+    background-color: #FAF2F5!important;
+}
+
+.dashboard-box-inner h3 {
+    color: #E1ADC4!important;
+}
+
+.dashboard-profile-info span {
+    color: #E1ADC4!important;
+}
+
+.btn-default {
+    background-color: #E1ADC4!important;
+}
+
+.btn-default:hover {
+    background-color: #CD7193!important;
+}
+
+.btn-primary {
+    background-color: #E1ADC4!important;
+}
+
+.btn-primary:hover {
+    background-color: #CD7193!important;
+}
+
+.dashboard-avatar {
+    border: 3px solid #EAC1D3!important;
+}

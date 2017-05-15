@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     // Values that are "fillable" by user input
     protected $fillable = [
-        'name', 'email', 'password', 'google_id', 'avatar', 'school_id'
+        'name', 'email', 'password', 'google_id', 'avatar', 'school_id', 'theme'
     ];
 
     protected $hidden = [

@@ -63,5 +63,7 @@ Route::group(['middleware' => ['auth', 'role:teacher|pupil']], function() {
 Route::group(['middleware' => ['auth', 'role:teacher|school-admin|pupil']], function() {
    
     Route::resource('event', 'EventController'); 
+    Route::resource('profile', 'ProfileController');
+    
 });
 
