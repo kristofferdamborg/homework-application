@@ -71,11 +71,37 @@
        <div class="dashboard-box col-md-4">
             <div class="dashboard-box-inner">
                 <h3>Lektier</h3>
-            </div>
-       </div>
+                <div style="border-bottom: 1px solid lightgray;" class="row"><strong>
+                    <div class="col-xs-4">Fag:</div>
+                    <div class="col-xs-4">Title:</div>
+                    <div class="col-xs-4">Færdig til:</div></strong>
+                    </div>
+                @foreach ($user->school_class->homeworks as $HW)
+                <div class="row" style="margin-bottom: 1px; border-bottom: 1px solid lightgray;">
+                    <div class="col-xs-4"><strong>{{ $narr[$HW->subject_id] }}</strong></div>
+                    <div class="col-xs-4">{{ $HW->title }}</div>
+                    <div class="col-xs-4">{{ $HW->due_at }}</div>
+
+             </div>
+            @endforeach
+       </div></div>
+
        <div class="dashboard-box col-md-4">
             <div class="dashboard-box-inner">
-                <h3>Begivenheder (Events)?</h3>
+                <h3>Begivenheder</h3>
+                <div style="border-bottom: 1px solid lightgray;" class="row"><strong>
+                    <div class="col-xs-4">Navn:</div>
+                    <div class="col-xs-4">Starter:</div>
+                    <div class="col-xs-4">Slutter:</div></strong>
+                    </div>
+                @foreach ($user->school_class->events as $EV)
+                <div class="row" style="margin-bottom: 1px; border-bottom: 1px solid lightgray;">
+                    <div class="col-xs-4">{{ $EV->name }}</div>
+                    <div class="col-xs-4">{{ $EV->start_time }}</div>
+                    <div class="col-xs-4">{{ $EV->end_time }}</div>
+
+             </div>
+            @endforeach
             </div>
        </div>
     </div>

@@ -60,11 +60,18 @@ class HomeworkController extends Controller
     public function show($id)
     {   $schoolclass = SchoolClass::find($id);
         $schoolclass->homeworks;
-        $arr = array();
+        $narr = array();
+        $carr = array();
+        $school_id = Auth::user()->school_id;
+        $school = School::find($school_id);
+        $school->subjects;
         foreach ($schoolclass->homeworks as $homework) {
-            $arr[$homework->subject_id] = Subject::find($homework->subject_id)->name;
+            $narr[$homework->subject_id] = Subject::find($homework->subject_id)->name;
         }
-        return view('homework.show', compact('schoolclass','arr'));
+        foreach ($schoolclass->homeworks as $homework) {
+            $carr[$homework->subject_id] = Subject::find($homework->subject_id)->bg_color;
+        }
+        return view('homework.show', compact('schoolclass','narr','school', 'carr'));
     } 
     
     public function edit($id)
