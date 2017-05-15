@@ -7,48 +7,94 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <div class="row">
+                @if (Auth::user()->hasRole('pupil'))
+                <div class="col-xs-6">
+                <h2>Dine lektier</h2>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Alle fag
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Dansk</a></li>
+                    <li><a href="#">Matematik</a></li>
+                    <li><a href="#">Engelsk</a></li>
+                  </ul>
+                </div>
+                </div>
+                @else
                 <div class="col-xs-6">
                 <h3>
                     Lectie Oversigt For {{ $schoolclass->name }}
                 </h3>
-                @if (Auth::user()->hasRole('pupil'))
+                
+                <p style="font-size: large; display: block;"><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
                 </div>
-                @else
-                <p style="font-size: large;"><a href="{{ route('homework.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til klasse oversigt</a></p>
-                </div><div class="col-xs-6">
+                <div class="col-xs-6">
                 <h3><a style="float: right;" class="btn btn-primary btn-lg" href="{{ route('homework.create') }}">Opret Lektie</a></h3>
                 </div>
                 @endif
-
                 </div>	
                 </div>
 
                 <div class="panel-body">
-		<table class="table table-responsive table-hover" style="width:100%; font-size: large;">
-			<tr style="text-align: center;">
-				<th>Title</th>
-				<th>Beskrivelse</th> 
-				<th>Fag</th>
-				<th>Offentliggøres</th>
-				<th>Afsluttes</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-			@foreach ($schoolclass->homeworks as $HW)
-			<tr style="border-bottom: 1px solid gray; height: 35px;">
-				<td>{{ $HW->title }}</td>
-		    		<td>{{ $HW->description }}</td> 
-		    		<td>{{ $arr[$HW->subject_id] }}</td>
-		    		<td>{{ $HW->started_at }}</td> 
-		    		<td>{{ $HW->due_at }}</td>
 
-		    		<td style=" text-align: center;"><a class="btn btn-default btn-lg" href="{{ route('homework.edit', $HW->id) }}"><span style="color: lightgreen;" class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
-		    		<td style="text-align: center;"><form action="{{ URL::route('homework.destroy', $HW->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <button class="btn btn-default btn-lg"><span style="color: red;" class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
-			</tr>
-			@endforeach
-		</table>
+
+                        <h4>Denne uge</h4>
+                        <div class="form-group">
+                            <select class="form-control btn-primary btn" name="school_class_id" required>
+                                <option value="0" selected>Alle fag                             
+                                </option>
+                                @foreach($school->subjects as $subject)
+                                    <option value="{{$subject->id}}">{{$subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="row">
+
+                        @foreach ($schoolclass->homeworks as $HW)
+                        <a style="color: #0f0f0f; cursor: pointer;" class="btn-link" type="button" class="" data-toggle="modal" data-target="#{{ $HW->id }}"><div class="col-xs-12">
+                        <div style="height: 85px; background-color: #f4f4f4; margin-bottom: 15px;">
+                            <div style="width: 85px; float: left; line-height: 85px; text-align: center; background-color: {{ $carr[$HW->subject_id] }};" >
+                            {{ $narr[$HW->subject_id] }}
+                            </div>
+                            <div style="line-height: 85px; padding-right: 10px;">
+                             <p style="padding-left: 10px; height: 100%; float: left;">{{ $HW->title }}</p>
+                            <p style="float: right; height: 100%;">{{ $HW->due_at }}</p></div>
+                        </div></div></a>
+                        <div id="{{ $HW->id }}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title">{{ $HW->title }}</h3>
+                              </div>
+                              <div class="modal-body">
+                                <h4><strong>Fag:</strong> {{ $narr[$HW->subject_id] }}</h4>
+                                <h4><strong>Beskrivelse:</strong></h4>
+                                <p>{{ $HW->description }}</p>
+                                <hr>
+                                <h4><strong>Dato & tid</strong></h4>
+                                <p>Opgaven startede: {{ $HW->started_at }}</p> 
+                                <p>Opgaven afsluttes: {{ $HW->due_at }}</p>
+                                <hr>
+                                <p>Sidst opdateret: {{ $HW->updated_at }}</p>
+                              </div>
+                              <div class="modal-footer">
+                                <a style="min-width: 100px; float: left; margin-right: 5px;" class="btn btn-primary btn-lg" href="{{ route('homework.edit', $HW->id) }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit</a>
+
+                                <form action="{{ URL::route('homework.destroy', $HW->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+                                <button style="min-width: 100px; float: left;" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+                                <button style="min-width: 100px; float: right;" type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        @endforeach
+                        </div>
+                        <h4>Senere</h4>
                 </div>  
             </div>
         </div>

@@ -7,6 +7,9 @@ use App\User;
 use Auth;
 use App\Session;
 use Carbon\Carbon;
+use App\Subject;
+use App\Homework;
+use App\Events;
 
 class HomeController extends Controller
 {
@@ -24,6 +27,13 @@ class HomeController extends Controller
 
         $user->school;
         $user->school_class;
+        $user->school_class->homeworks;
+        $user->school_class->events;
+
+        $narr = array();
+        foreach ($user->school_class->homeworks as $homework) {
+            $narr[$homework->subject_id] = Subject::find($homework->subject_id)->name;
+        }
 
         if (Auth::check() && Auth::user()->hasRole('admin'))
         {
@@ -35,13 +45,13 @@ class HomeController extends Controller
         }
         elseif (Auth::check() && Auth::user()->hasRole('teacher'))
         {
-            return view('dashboard', compact('user'));
+            return view('dashboard', compact('user','narr'));
         }
         elseif (Auth::check() && Auth::user()->hasRole('pupil'))
         {
             $session = Auth::user()->sessions()->latest()->first();
             
-            return view('dashboard', compact('user', 'session'));
+            return view('dashboard', compact('user', 'session','narr'));
         }
         else 
         {
