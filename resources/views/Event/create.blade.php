@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="type" placeholder="Tybe"></input>
+                            <input type="text" class="form-control" name="type" placeholder="Type"></input>
                         </div>
 
                         <div class="form-group">
@@ -52,7 +52,7 @@
                         </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Register" class="btn btn-success pull-right">
+                        <input type="submit" value="Opret" class="btn btn-success pull-right">
                     </div>
 
                     </form>

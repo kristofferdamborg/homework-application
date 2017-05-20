@@ -39,7 +39,7 @@
 
 
                         <h4>Denne uge</h4>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <select class="form-control btn-primary btn" name="school_class_id" required>
                                 <option value="0" selected>Alle fag                             
                                 </option>
@@ -47,7 +47,7 @@
                                     <option value="{{$subject->id}}">{{$subject->name}}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="row">
 
                         @foreach ($schoolclass->homeworks as $HW)
@@ -81,12 +81,14 @@
                                 <p>Sidst opdateret: {{ $HW->updated_at }}</p>
                               </div>
                               <div class="modal-footer">
+                              @role('teacher')
                                 <a style="min-width: 100px; float: left; margin-right: 5px;" class="btn btn-primary btn-lg" href="{{ route('homework.edit', $HW->id) }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit</a>
 
                                 <form action="{{ URL::route('homework.destroy', $HW->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                                 <button style="min-width: 100px; float: left;" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
                                 <button style="min-width: 100px; float: right;" type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
+                                @endrole
                               </div>
                             </div>
 

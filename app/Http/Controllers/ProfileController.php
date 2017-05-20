@@ -76,7 +76,6 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail(Auth::user()->id);
         $user->theme = $request->theme;
-        $user->avatar = 'https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/user.png';
         
         $user->save();
 

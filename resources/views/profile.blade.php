@@ -34,8 +34,8 @@
                         </div>
                     </div>
 
-                    <img class="dashboard-avatar" id="profile-img" src="{{ str_replace('sz=50', 'sz=300', Auth::user()->avatar) }}" height="200"><br><br>
-                    <input style="width: 36%;" class="btn btn-primary" type="file" name="photo" onchange="onFileSelected(event)">
+                    {{-- <img class="dashboard-avatar" id="profile-img" src="{{ str_replace('sz=50', 'sz=300', Auth::user()->avatar) }}" height="200"><br><br>
+                    <input style="width: 36%;" class="btn btn-primary" type="file" name="photo" onchange="onFileSelected(event)"> --}}
             
                 <button style="margin-top: 100px" type="submit" class="btn btn-success dashboard-box-btn">
                         Gem ændringer
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <script>
+   {{--  <script>
 
         function onFileSelected(event) {
         var selectedFile = event.target.files[0];
@@ -62,6 +62,6 @@
         reader.readAsDataURL(selectedFile);
         }
 
-    </script>
+    </script> --}}
 
 @endsection

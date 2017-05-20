@@ -11,8 +11,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        LOGO
+                    <a id="logo-logo" href="{{ url('/') }}">
+                        <img style="height: 60px;" src="/img/logo.png">
                     </a>
                 </div>
 
@@ -31,14 +31,14 @@
                         <li><a href="{{ route('subject.index') }}">Subjects</a></li>
                     @endrole
                     @role('teacher')
-                        <li><a href="{{ url('/') }}">HJEM</a></li>
-                        <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
-                        <li><a href="{{ route('event.index') }}">KALENDER</a></li>
+                        <li><a href="{{ url('/') }}">Hjem</a></li>
+                        <li><a href="{{ route('homework.index') }}">Lektier</a></li>
+                        <li><a href="{{ route('event.index') }}">Kalender</a></li>
                     @endrole
                     @role('pupil')
-                        <li><a href="{{ url('/') }}">HJEM</a></li>
-                        <li><a href="{{ route('homework.index') }}">LEKTIER</a></li>
-                        <li><a href="{{ route('event.index') }}">KALENDER</a></li>
+                        <li><a href="{{ url('/') }}">Hjem</a></li>
+                        <li><a href="{{ route('homework.index') }}">Lektier</a></li>
+                        <li><a href="{{ route('event.index') }}">Kalender</a></li>
                     @endrole
                     </ul>
                     <ul class="nav-right">

@@ -42,7 +42,7 @@
                         {{ method_field('PATCH') }}
 
                         <div class="form-group">
-                            <h2>Lige inden at du tjekker ud..</h2>
+                            <h2>Lige inden at du smutter..</h2>
                             <h4>Hvad har du arbejdet med i dag?</h4>
                             <textarea id="session-description" required maxlength="250" class="form-control" name="description"></textarea>
                         </div>
@@ -73,7 +73,7 @@
                 <h3>Lektier</h3>
                 <div style="border-bottom: 1px solid lightgray;" class="row"><strong>
                     <div class="col-xs-4">Fag:</div>
-                    <div class="col-xs-4">Title:</div>
+                    <div class="col-xs-4">Titel:</div>
                     <div class="col-xs-4">Færdig til:</div></strong>
                     </div>
                 @foreach ($user->school_class->homeworks as $HW)
