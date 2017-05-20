@@ -7,3 +7,48 @@
         opacity: 1;				
     }
 }
+
+.btn-group {
+
+    .btn span.glyphicon {    			
+	opacity: 0.4;				
+    }
+
+    .btn.active span.glyphicon {				
+	opacity: 1;				
+    }
+}
+
+.btn-group-2 {
+     .btn span.glyphicon {    			
+	opacity: 0;				
+    }
+
+    .btn.active span.glyphicon {				
+	opacity: 1;				
+    }
+}
+
+.btn-default {
+    background-color: #ededed;
+}
+
+.bg-color-1 {
+        background-color: #9ECEAD!important;
+    }
+
+.bg-color-2 {
+        background-color: #FFE2C4!important;
+    }
+
+.bg-color-3 {
+        background-color: #E1ADC4!important;
+    }
+
+.bg-color-4 {
+        background-color: #8EAFB8!important;
+    }
+
+.bg-color-5 {
+        background-color: #FFDFC4!important;
+    }

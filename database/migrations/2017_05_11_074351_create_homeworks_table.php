@@ -19,6 +19,8 @@ class CreateHomeworksTable extends Migration
             $table->string('description');
             $table->string('school_class_id')->nullable();
             $table->string('subject_id')->nullable();
+            $table->string('subject_icon')->nullable();
+            $table->string('subject_bg');
             $table->timestamp('started_at')->nullable();
             $table->timestamp('due_at')->nullable();
             $table->timestamps();
