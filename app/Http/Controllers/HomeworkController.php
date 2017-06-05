@@ -53,7 +53,14 @@ class HomeworkController extends Controller
    
     public function store(Request $request)
     {
-        Homework::create($request->all());
+        $homework = Homework::create($request->all());
+
+        $subject = Subject::find($request->subject_id);
+
+        $homework->subject_bg = $subject->bg_color;
+
+        $homework->save();
+
         return redirect()->route('homework.index');
     }
    

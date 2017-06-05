@@ -14,13 +14,9 @@ class SessionController extends Controller
 {
     public function index()
     {
-        $school_id = Auth::user()->school_id;
+        $sessions = Auth::user()->sessions;
 
-        $school = School::find($school_id);
-
-        $school->classes;
-
-        return view('homework.index', compact('school'));
+        return view('session.index', compact('sessions'));
     }
 
     public function create()
@@ -60,7 +56,7 @@ class SessionController extends Controller
 
     public function show($id)
     {   
-
+        
     } 
 
     public function edit($id)

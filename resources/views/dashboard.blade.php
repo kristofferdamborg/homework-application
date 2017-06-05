@@ -16,6 +16,12 @@
             </div>
         </div>
         <div class="col-md-5">
+            <div class="dashboard-box-inner text-center">
+            <h3>Sessioner i denne uge</h3><br>
+            <h4>Antal sessioner: {{ count($sessions) }}</h4>
+            <h4>Antal timer: {{ $average_session_hours }}</h4>
+            <a href="{{ route('session.index') }}" class="dashboard-box-btn btn btn-default">Se oversigt</a>
+            </div>
         </div>
     </div>
     <div class="dashboard-box-row row">

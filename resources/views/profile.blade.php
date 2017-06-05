@@ -17,7 +17,7 @@
                         <div class="theme-heading">
                             <h4>Vælg tema: </h4>
                         </div>
-                        <div class="btn-group pull-right" data-toggle="buttons">
+                        <div class="btn-group btn-group-2 pull-right" data-toggle="buttons">
                             <label class="btn btn-success active">
                                 <input type="radio" name="options" id="option2" autocomplete="off" 
                                 @if (Auth::user()->theme == NULL)
