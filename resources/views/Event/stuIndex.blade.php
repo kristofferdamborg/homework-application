@@ -9,7 +9,7 @@
                 <div class="row">
                 <div class="col-xs-6">
                 <h3 >
-                    Event oversigt for {{ $class->name }}
+                    Kalender for {{ $class->name }}
                 </h3>
                 </div>
                 <div class="col-xs-6">
@@ -24,7 +24,6 @@
                             <th>Beskrivelse</th>
                             <th>Start tid</th>
                             <th>Slut tid</th>
-                            <th>Sidst opdateret</th>
                         </tr>
                         @foreach($class->events as $event)
                         <tr style="border-bottom: 1px solid gray; height: 35px;">
@@ -33,7 +32,6 @@
                                 <td>{{ $event->description }}</td>
                                 <td>{{ $event->start_time }}</td> 
                                 <td>{{ $event->end_time }}</td>
-                                <td>{{ $event->updated_at }}</td>
                         </tr>
                          @endforeach
                         </table>

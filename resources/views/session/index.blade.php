@@ -21,7 +21,7 @@
                             <tr>
                                 <td><a class="session-click" data-toggle="modal" data-target="#{{ $session->id }}">{{ $session->created_at }}</a></td>
                                 <td><a class="session-click" data-toggle="modal" data-target="#{{ $session->id }}">{{ $session->updated_at }}</a></td>
-                                <td><a class="session-click" data-toggle="modal" data-target="#{{ $session->id }}">{{ $session->created_at->diffInHours($session->updated_at) }} timer</a></td>
+                                <td><a class="session-click" data-toggle="modal" data-target="#{{ $session->id }}">{{ $session->created_at->diffInHours(Carbon\Carbon::parse($session->ended_at)) }} timer</a></td>
                                 <td><a class="session-click" data-toggle="modal" data-target="#{{ $session->id }}">{{ $session->description }}</a></td>
                             </tr>
                            </a>

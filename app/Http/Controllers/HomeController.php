@@ -40,11 +40,11 @@ class HomeController extends Controller
             Carbon::parse('last monday')->startOfDay(),
             Carbon::parse('next friday')->endOfDay(),
         ])->get();
-
+        
         $session_dates = array();
         foreach ($sessions as $session)
         {
-             $session_dates[] = $session->created_at->diffInHours($session->updated_at);
+             $session_dates[] = $session->created_at->diffInHours(Carbon::parse($session->ended_at));
         }
         
         $average_session_hours = array_sum($session_dates);
