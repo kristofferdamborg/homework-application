@@ -16,7 +16,7 @@ class SessionController extends Controller
     {
         $sessions = Auth::user()->sessions;
 
-        return view('session.index', compact('sessions'));
+        return view('sessions.index', compact('sessions'));
     }
 
     public function create()

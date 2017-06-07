@@ -14,7 +14,7 @@
                 <p>Her kan du som underviser oprette events, dette kan række sig fra unikke events for klasserne eller lektiecafe</p>
                 </div>
                 <div class="col-xs-6">
-                    <h3><a style="float: right;" class="btn btn-primary btn-lg" href="{{ route('event.create') }}">Opret event</a></h3>
+                    <h3><a style="float: right;" class="btn btn-primary btn-lg" href="{{ route('events.create') }}">Opret event</a></h3>
                 </div>
                 </div></div>
 
@@ -33,7 +33,7 @@
                         </tr>
                         @foreach($school->events as $event)
                         <tr style="border-bottom: 1px solid gray; height: 35px;">
-                                <td><a href="{{ route('event.show', $event->id)}}"> {{ $event->name }} </a></td>
+                                <td><a href="{{ route('events.show', $event->id)}}"> {{ $event->name }} </a></td>
                                 <td>{{ $event->type }}</td> 
                                 <td>{{ $event->description }}</td>
                                 <td>{{ $event->start_time }}</td> 
@@ -41,8 +41,8 @@
                                 <td>{{ $arr[$event->school_class_id] }}</td>
                                 <td>{{ $event->updated_at }}</td>
 
-                                <td style=" text-align: center;"><a class="btn btn-default btn-lg" href="{{ route('event.edit', $event->id) }}"><span style="color: lightgreen;" class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
-                                <td style="text-align: center;"><form action="{{ URL::route('event.destroy', $event->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
+                                <td style=" text-align: center;"><a class="btn btn-default btn-lg" href="{{ route('events.edit', $event->id) }}"><span style="color: lightgreen;" class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
+                                <td style="text-align: center;"><form action="{{ URL::route('events.destroy', $event->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button class="btn btn-default btn-lg"><span style="color: red;" class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
                         </tr>

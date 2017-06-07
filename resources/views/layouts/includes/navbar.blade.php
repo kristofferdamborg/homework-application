@@ -33,12 +33,12 @@
                     @role('teacher')
                         <li><a href="{{ url('/') }}">Hjem</a></li>
                         <li><a href="{{ route('homework.index') }}">Lektier</a></li>
-                        <li><a href="{{ route('event.index') }}">Kalender</a></li>
+                        <li><a href="{{ route('events.index') }}">Kalender</a></li>
                     @endrole
                     @role('pupil')
                         <li><a href="{{ url('/') }}">Hjem</a></li>
                         <li><a href="{{ route('homework.index') }}">Lektier</a></li>
-                        <li><a href="{{ route('event.index') }}">Kalender</a></li>
+                        <li><a href="{{ route('events.index') }}">Kalender</a></li>
                     @endrole
                     </ul>
                     <ul class="nav-right">

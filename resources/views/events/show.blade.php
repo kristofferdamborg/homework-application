@@ -11,15 +11,15 @@
                 <h3 >
                     Event: {{ $event->name }}
                 </h3>
-                <p style="font-size: large;"><a href="{{ route('event.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til event oversigt</a></p>
+                <p style="font-size: large;"><a href="{{ route('events.index') }}"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Tilbage til event oversigt</a></p>
                 </div><div class="col-xs-6">
                 </div>
                 @if (Auth::user()->hasRole('pupil'))
                 @else
                 <div class="col-xs-6">
                 <div style="float: right;">
-                    <a style="min-width: 200px" class="btn btn-primary btn-lg" href="{{ route('event.edit', $event->id) }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit</a></h3>
-                    <form action="{{ URL::route('event.destroy', $event->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
+                    <a style="min-width: 200px" class="btn btn-primary btn-lg" href="{{ route('events.edit', $event->id) }}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit</a></h3>
+                    <form action="{{ URL::route('events.destroy', $event->id) }}" method="POST"><input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                 <button style="min-width: 200px" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button></form></div>
                 </div>

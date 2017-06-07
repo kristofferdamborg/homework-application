@@ -18,7 +18,7 @@ class EventController extends Controller
 			$class_id = Auth::user()->school_class_id;
        	    $class = SchoolClass::find($class_id);
 
-        	return view('event.stuIndex', compact('class'));
+        	return view('events.stuIndex', compact('class'));
 	    	//return redirect()->route('event.stuIndex');
 		}
 		else
@@ -30,7 +30,7 @@ class EventController extends Controller
 		{
 			$arr[$event->school_class_id] = SchoolClass::find($event->school_class_id)->name;
 		}
-			return view('event.index', compact('school','arr'));
+			return view('events.index', compact('school','arr'));
 		}
     }
 
@@ -47,7 +47,7 @@ class EventController extends Controller
     {
     	if (Auth::check() && Auth::user()->hasRole('pupil'))
 		{
-	         return redirect()->route('event.stuIndex');
+	         return redirect()->route('events.stuIndex');
 		}
 		else
 		{  
@@ -55,7 +55,7 @@ class EventController extends Controller
 			$school = School::find($school_id);
 			$school->classes;
 
-        	return view('event.create', compact('school'));
+        	return view('events.create', compact('school'));
     	}
     }
 
@@ -63,7 +63,7 @@ class EventController extends Controller
     {	
     	Event::create($request->all());
 
-        return redirect()->route('event.index');
+        return redirect()->route('events.index');
     }
 
     public function show($id)
@@ -71,14 +71,14 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $className = SchoolClass::find($event->school_class_id)->name;
 
-        return view('event.show', compact('event','className'));
+        return view('events.show', compact('event','className'));
     }
 
     public function edit($id)
     {
 		if (Auth::check() && Auth::user()->hasRole('pupil'))
 		{
-			return redirect()->route('event.stuIndex');
+			return redirect()->route('events.stuIndex');
 		}
 		else
 		{  
@@ -87,7 +87,7 @@ class EventController extends Controller
 			$school = School::find($school_id);
 			$school->classes;
 
-			return view('event.edit', compact('event','school'));
+			return view('events.edit', compact('event','school'));
 		}
 	}
 
@@ -104,7 +104,7 @@ class EventController extends Controller
 
         	$event->save();
 
-        	return redirect()->route('event.index');
+        	return redirect()->route('events.index');
 
     }
 
@@ -112,14 +112,14 @@ class EventController extends Controller
     {
     	if (Auth::check() && Auth::user()->hasRole('pupil'))
 		{
-	    	return redirect()->route('event.stuIndex');
+	    	return redirect()->route('events.stuIndex');
 		}
 		else
 		{  
     		Event::findOrFail($id);
         	Event::destroy($id);
 
-        	return redirect()->route('event.index');
+        	return redirect()->route('events.index');
         }
     }
 }

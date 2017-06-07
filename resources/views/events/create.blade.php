@@ -7,21 +7,20 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h3>
-                    Opdater Event
+                    Opret Event
                 </h3>
                 </div>
 
                 <div class="panel-body">
-                    <form method="POST" action="{{ route('event.update', $event->id) }}">
+                    <form method="POST" action="{{ route('events.store') }}">
                     {{ csrf_field() }}
-                    {{ method_field('PATCH') }}
 
                         <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Navn">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="type" placeholder="Tybe"></input>
+                            <input type="text" class="form-control" name="type" placeholder="Type"></input>
                         </div>
 
                         <div class="form-group">
@@ -53,7 +52,7 @@
                         </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-success pull-right">
+                        <input type="submit" value="Opret" class="btn btn-success pull-right">
                     </div>
 
                     </form>

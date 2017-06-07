@@ -20,7 +20,7 @@
             <h3>Sessioner i denne uge</h3><br>
             <h4>Antal sessioner: {{ count($sessions) }}</h4>
             <h4>Antal timer: {{ $average_session_hours }}</h4>
-            <a href="{{ route('session.index') }}" class="dashboard-box-btn btn btn-default">Se oversigt</a>
+            <a href="{{ route('sessions.index') }}" class="dashboard-box-btn btn btn-default">Se oversigt</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <p class="text-center">Tjek ind hvis du deltager i dagens lektiecafé.</p>
                 <p><strong>OBS:</strong> Du kan <u>kun</u> tjekke ind på skolens område.</p>
                  @if( empty($session->created_at ))
-                 <form method="POST" action="{{ route('session.store') }}">
+                 <form method="POST" action="{{ route('sessions.store') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -43,7 +43,7 @@
                  @elseif( empty($session->ended_at ))
                  <a href="#" id="check-out-1" class="dashboard-box-btn btn-check-out btn btn-default">Tjek ud</a>
                  <div class="check-out-box">
-                    <form class="check-out-form" method="POST" action="{{ route('session.update', $session->id) }}">
+                    <form class="check-out-form" method="POST" action="{{ route('sessions.update', $session->id) }}">
                         {{ csrf_field() }}
                         {{ method_field('PATCH') }}
 
@@ -62,7 +62,7 @@
                     </form>
                  </div>
                 @else(! empty($session->ended_at))
-                <form method="POST" action="{{ route('session.store') }}">
+                <form method="POST" action="{{ route('sessions.store') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group">

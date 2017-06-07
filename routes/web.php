@@ -56,13 +56,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
 Route::group(['middleware' => ['auth', 'role:teacher|pupil']], function() {
    
     Route::resource('homework', 'HomeworkController'); 
-    Route::resource('session', 'SessionController');
+    Route::resource('sessions', 'SessionController');
 
 });
 
 Route::group(['middleware' => ['auth', 'role:teacher|school-admin|pupil']], function() {
    
-    Route::resource('event', 'EventController'); 
+    Route::resource('events', 'EventController'); 
     Route::resource('profile', 'ProfileController');
     
 });

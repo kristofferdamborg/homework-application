@@ -27,7 +27,7 @@
                         </tr>
                         @foreach($class->events as $event)
                         <tr style="border-bottom: 1px solid gray; height: 35px;">
-                                <td><a href="{{ route('event.show', $event->id)}}"> {{ $event->name }} </a></td>
+                                <td><a href="{{ route('events.show', $event->id)}}"> {{ $event->name }} </a></td>
                                 <td>{{ $event->type }}</td> 
                                 <td>{{ $event->description }}</td>
                                 <td>{{ $event->start_time }}</td> 
